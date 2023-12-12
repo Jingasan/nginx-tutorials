@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  apache-server:
+  nginx-server:
     container_name: nginx-https
     image: nginx-https:latest
     build:

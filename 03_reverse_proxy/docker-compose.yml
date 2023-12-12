@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  # 前段のNginxリバースプロキシサーバー
+  nginx-rproxy:
+    container_name: nginx-rproxy
+    image: nginx-rproxy:latest
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+  # 後段のGinAPIサーバー
+  gin-api:
+    container_name: gin-api
+    image: gin-api:latest
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
