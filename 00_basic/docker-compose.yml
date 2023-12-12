@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  apache-server:
+    container_name: nginx
+    image: nginx:latest
+    ports:
+      - 80:80
