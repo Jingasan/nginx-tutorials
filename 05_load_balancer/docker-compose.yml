@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  # 前段のApacheロードバランサーサーバー
+  nginx-server:
+    image: nginx-load-balancer:latest
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+  # 後段のExpressAPIサーバー
+  express-api:
+    image: express-api:latest
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - 3001-3004:3000
+    deploy:
+      mode: replicated
+      replicas: 4
