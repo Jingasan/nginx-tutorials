@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  # 前段のApacheロードバランサーサーバー
+  # 前段のNginxロードバランサーサーバー
   nginx-server:
     image: nginx-load-balancer:latest
     build:
