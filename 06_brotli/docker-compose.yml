@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  nginx-server:
+    container_name: nginx-brotli
+    image: nginx-brotli:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ENABLED_MODULES: brotli
+    ports:
+      - 80:80
+    volumes:
+      - ./conf/nginx.conf:/etc/nginx/nginx.conf
